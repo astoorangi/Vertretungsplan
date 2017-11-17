@@ -134,4 +134,4 @@ class get():
             for klasse in vertretung["klasse"]:
                 if klasse == isklasse:
                     sortedVertretungen.append(vertretung)
-        return({date:sortedVertretungen})
+        return({date:sorted(sortedVertretungen, key=lambda vertretung: vertretung["stunden"][0])})

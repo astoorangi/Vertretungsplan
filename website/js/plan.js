@@ -65,6 +65,7 @@ function showVertretungen() {       // Fordere & Zeige Vertretungen in Tabelle a
                     );
                 };
             }
+
         });
 }
 
