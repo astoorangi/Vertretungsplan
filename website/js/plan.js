@@ -60,7 +60,7 @@ function showVertretungen() {       // Fordere & Zeige Vertretungen in Tabelle a
                         '<td>' + checkPrint(vertretung.raum) + '</td>' +                                        // Raum
                         '<td>' + checkPrint(vertretung.vertreter) + '</td>' +                                   // Vertreter
                         '<td>' + checkPrint(vertretung.text) + '</td>' +                                        // Text
-                        '<td>' + checkPrint(vertretung.klasse.toString().replace(',', ', ')) + '</td>' +        // Klasse(n)
+                        '<td>' + checkPrint(vertretung.klasse.toString().replace(/,/g, ', ')) + '</td>' +        // Klasse(n)
                         '</tr>'
                     );
                 };
