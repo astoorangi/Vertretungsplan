@@ -27,20 +27,18 @@ function showVertretungen() {       // Fordere & Zeige Vertretungen in Tabelle a
             var datum = date.toLocaleDateString();          // Konvertiere Datum in tt.mm.yyyy
             var vertretungen = data[datum];     // Rufe vertretungen in Array "vertretungen"
 
+            var raw = ""    // string, der später in tbody eingefügt wird
+
             if (vertretungen == null) {     // Wenn Vertretunge null = Keine vorhanden
-                $('tbody').append(          // Schreibe Info in Tabelle
-                    '<tr>' +
+                raw += '<tr>' +
                     '<td colspan="8">Keine Daten für den heutigen Tag vorhanden.</td>' +
-                    '</tr>'
-                );
+                    '</tr>';
             }
 
             else if (vertretungen.length == 0) {    // Wenn Anzahl der Vertretungen 0 = Keine für Auswahl vorhanden
-                $('tbody').append(          // Informiere über keine Vertretungen
-                    '<tr>' +
+                raw += '<tr>' +
                     '<td colspan="8">Keine Vertretungen verfürbar.</td>' +
-                    '</tr>'
-                );
+                    '</tr>';
             }
 
             else {                                          // Else = Vertretungen für Auswahl vorhanden
@@ -52,8 +50,7 @@ function showVertretungen() {       // Fordere & Zeige Vertretungen in Tabelle a
                     } else if (vertretung.art == "Raum-Vtr.") {
                         cssclass = " class=\"warning\"";
                     }
-                    $('tbody').append(                              // Füge Vertretung hinzu
-                        '<tr' + cssclass + '>' +                                                // class für Farbe nach Art
+                    raw += '<tr' + cssclass + '>' +                                                // class für Farbe nach Art
                         '<td>' + checkPrint(vertretung.stunden.toString().replace(',', ' - ')) + '</td>' +      // Stunde(n)
                         '<td>' + checkPrint(vertretung.fachalt) + '</td>' +                                     // Altes Fach
                         '<td>' + checkPrint(vertretung.fach) + '</td>' +                                        // Fach
@@ -62,11 +59,11 @@ function showVertretungen() {       // Fordere & Zeige Vertretungen in Tabelle a
                         '<td>' + checkPrint(vertretung.vertreter) + '</td>' +                                   // Vertreter
                         '<td>' + checkPrint(vertretung.text) + '</td>' +                                        // Text
                         '<td>' + checkPrint(vertretung.klasse.toString().replace(/,/g, ', ')) + '</td>' +        // Klasse(n)
-                        '</tr>'
-                    );
+                        '</tr>';
                 };
             }
 
+            $('tbody').html(raw);
         });
 }
 
@@ -85,10 +82,10 @@ function showMotd() {
 
 function checkPrint(toprint) {
     if (toprint !== null) {
-        return(toprint);
+        return (toprint);
     }
     else {
-        return("");
+        return ("");
     }
 }
 
