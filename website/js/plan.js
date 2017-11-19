@@ -8,6 +8,7 @@ function updateDate(anzahl) {       // Verschiebe Datum um x Tage
     date.setDate(date.getDate() + anzahl);  // Erhöhe var date um anzahl aus function
     showDate();         // Rufe functions zum aktualisieren der Ansicht auf
     showVertretungen();
+    showMotd();
 }
 
 function showDate() {               // Zeige Datum in nav        
@@ -78,7 +79,7 @@ function showMotd() {
         .done(function (data) {
             console.log(data);
             var datum = date.toLocaleDateString();          // Konvertiere Datum in tt.mm.yyyy
-            $('#motdtext').html(data[datum]["motd"])
+            $('#motdtext').html(data)
         });
 }
 
@@ -148,6 +149,7 @@ function form(state) {              // Zeige Form an / blende aus
         showInfo();             // Aktualisiere Daten // Doppelt????
         showDate();
         showVertretungen();
+        showMotd();
     }
 }
 
