@@ -69,6 +69,19 @@ function showVertretungen() {       // Fordere & Zeige Vertretungen in Tabelle a
         });
 }
 
+function showMotd() {
+    var url = "api/" + getCookie("urlhash") + "/" + date.toLocaleDateString() + "/motd";       // Erstelle URL
+    $('#motdtext').empty();                             // Entferne bisherige MOTD
+    $.ajax({        // Stelle Ajax
+        url: url
+    })
+        .done(function (data) {
+            console.log(data);
+            var datum = date.toLocaleDateString();          // Konvertiere Datum in tt.mm.yyyy
+            $('#motdtext').html(data[datum]["motd"])
+        });
+}
+
 function checkPrint(toprint) {
     if (toprint !== null) {
         return(toprint);
