@@ -135,3 +135,8 @@ class get():
                 if klasse == isklasse:
                     sortedVertretungen.append(vertretung)
         return({date:sorted(sortedVertretungen, key=lambda vertretung: vertretung["stunden"][0])})
+
+    def motd(self,date):
+        with open(self.file) as file:   # Importiere data.json
+            data = json.load(file)      # Als data
+        return(data["days"][date]["motd"])
