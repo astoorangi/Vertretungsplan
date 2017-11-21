@@ -37,7 +37,7 @@ function showVertretungen() {       // Fordere & Zeige Vertretungen in Tabelle a
 
             else if (vertretungen.length == 0) {    // Wenn Anzahl der Vertretungen 0 = Keine für Auswahl vorhanden
                 raw += '<tr>' +
-                    '<td colspan="8">Keine Vertretungen verfürbar.</td>' +
+                    '<td colspan="8">Heute leider keine Vertretungen :(</td>' +
                     '</tr>';
             }
 
