@@ -1,2 +1,4 @@
 RewriteEngine On
 RewriteRule (.*) http://127.0.0.1:63860/$1 [P]
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript text/javascript application/json
