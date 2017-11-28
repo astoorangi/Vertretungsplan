@@ -1,7 +1,7 @@
 var date = new Date();
 
 function showInfo() {               // Zeige Klasse im Footer
-    $('#infos').append(getCookie("klasse"));
+    $('#infos').html(getCookie("klasse"));
 }
 
 function updateDate(anzahl) {       // Verschiebe Datum um x Tage
