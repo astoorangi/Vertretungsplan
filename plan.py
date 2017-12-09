@@ -126,14 +126,16 @@ class get():
     def __init__(self,file="data.json"):
         self.file = file
     
-    def search(self,date,isklasse):
+    def search(self,date,isklasse):     # Suche nach Vertretungen
         with open(self.file) as file:   # Importiere data.json
             data = json.load(file)      # Als data
         sortedVertretungen = []
-        for vertretung in data["days"][date]["vertretungen"]:
-            for klasse in vertretung["klasse"]:
-                if klasse == isklasse:
-                    sortedVertretungen.append(vertretung)
+        for vertretung in data["days"][date]["vertretungen"]:   # Jede Vertretung
+            for klasse in vertretung["klasse"]:         # Jede Klasse
+                counter = klasse.count(str(isklasse))       # Zähle Anzahl der gesuchten Klasse pro Klasse
+                if counter > 0:                             # Wenn Suchbegriff gefunden
+                    sortedVertretungen.append(vertretung)       # Füge Vertretung hinzu
+                    break                                       # Breche aktuelle Vertretung ab, da bereits hinzugefügt
         return({date:sorted(sortedVertretungen, key=lambda vertretung: vertretung["stunden"][0])})
 
     def motd(self,date):
