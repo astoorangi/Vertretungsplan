@@ -87,14 +87,13 @@
                 <h2>Erstelle deinen Plan!</h2>
                 <form class="form-group" onsubmit="setCookie;return false;">
                     <div class="form-group">
-                        <label>Klasse:</label>
-                        <input type="text" class="form-control" id="klasse" placeholder="Klasse" required="required" />
-                        <span class="help-block">Die Klasse muss im selben Format wie auf dem Vertretungsplan angegeben werden. (z.B. 09D)</span>
+                        <label>Klasse / Stufe:</label>
+                        <input type="text" class="form-control" id="klasse" placeholder="Klasse / Stufe" required="required" />
                     </div>
                     <div class="form-group">
                         <label>Update URL:</label>
                         <input type="text" class="form-control" id="url" placeholder="URL" required="required" />
-                        <span class="help-block">Die Kalenderwoche durch [week] ersetzen.</span>
+                        <span class="help-block">Die direkte URL zum normalen Online-Vertretungsplan</span>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg" onclick="setCookie();">Erstellen</button>
                 </form>
